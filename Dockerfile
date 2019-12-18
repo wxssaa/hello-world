@@ -2,4 +2,5 @@ FROM node:8.4
 COPY . /app
 WORKDIR /app
 RUN ["npm", "install"]
-EXPOSE 3000/tcp
+EXPOSE 8888/tcp
+CMD node demo.js
