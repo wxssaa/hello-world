@@ -4,7 +4,7 @@ metadata:
   name: hello-service
 spec:
   selector:
-      app: hello
+      app: hello-app
   ports:
     - name: http
       port: 8888

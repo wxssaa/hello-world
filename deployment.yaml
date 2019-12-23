@@ -5,15 +5,15 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: hello
+      app: hello-app
   replicas: 2
   template:
     metadata:
       labels:
-        app: hello
+        app: hello-app
     spec:
       containers:
-      - name: hello
-        image: wxssaa/hello-world:0.0.2
+      - name: hello-world
+        image: registry.cn-hangzhou.aliyuncs.com/wxssaa/hello-world:0.0.2
         ports:
         - containerPort: 8888
