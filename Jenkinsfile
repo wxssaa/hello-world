@@ -12,15 +12,14 @@ pipeline {
             sh 'echo "ignore build"'
             
             // Push docker image
-            // sh 'docker login --username=wxssaa --password=Lingerwx@123'
-            // sh 'docker image tag hello-world:0.0.2 wxssaa/hello-world:0.0.2'
-            // sh 'docker image push wxssaa/hello-world:0.0.2'
+            // sh 'docker image tag hello-world:0.0.2 registry.cn-hangzhou.aliyuncs.com/wxssaa/hello-world:0.0.2'
+            // sh 'docker image push registry.cn-hangzhou.aliyuncs.com/wxssaa/hello-world:0.0.2'
          }
       }
       stage('Deploy') {
          steps {
             // Pull docker image
-            // sh 'docker image pull wxssaa/hello-world:0.0.2'
+            sh 'docker image pull registry.cn-hangzhou.aliyuncs.com/wxssaa/hello-world:0.0.2'
             
             // Remove old container
             // sh 'docker rm -f hello-world || echo "Container app already deleted."'
