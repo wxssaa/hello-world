@@ -13,19 +13,20 @@ pipeline {
             // Push docker image
             sh 'docker login --username=wxssaa --password=Lingerwx@123'
             sh 'docker image tag hello-world:0.0.2 wxssaa/hello-world:0.0.2'
-            //sh 'docker image push wxssaa/hello-world:0.0.2'
+            sh 'docker image push wxssaa/hello-world:0.0.2'
          }
       }
       stage('Deploy') {
          steps {
             // Pull docker image
-            sh 'docker image pull wxssaa/hello-world:0.0.2'
+            //sh 'docker image pull wxssaa/hello-world:0.0.2'
             
             // Remove old container
-            sh 'docker rm -f hello-world || echo "Container app already deleted."'
+            //sh 'docker rm -f hello-world || echo "Container app already deleted."'
             
             // Run docker image
-            sh 'docker container run -d --name hello-world -p 8888:8888 wxssaa/hello-world:0.0.2'
+            sh 'kubectl create -f deployment.yaml'
+            sh 'kubectl create -f service.yaml'
          }
       }
       stage('Test') {
