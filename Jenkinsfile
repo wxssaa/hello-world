@@ -26,15 +26,14 @@ pipeline {
             // sh 'docker rm -f hello-world || echo "Container app already deleted."'
             
             // Run docker image
-            sh '/snap/bin/kubectl create -f deployment.yaml'
-            sh '/snap/bin/kubectl create -f service.yaml'
+            sh '/snap/bin/kubectl apply -f deployment.yaml'
+            sh '/snap/bin/kubectl apply -f service.yaml'
          }
       }
       stage('Test') {
          steps {
             // Print hello world, using docker container ip
-            sh 'ip address'
-            sh 'curl http://172.17.0.1:8888/'
+            sh 'curl http://127.0.0.1:8888/'
          }
       }
    }
