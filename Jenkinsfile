@@ -18,6 +18,7 @@ pipeline {
       }
       stage('Deploy') {
          steps {
+         	sh 'source ~/.bashrc'
             // Pull docker image
             // sh 'docker image pull wxssaa/hello-world:0.0.2'
             
