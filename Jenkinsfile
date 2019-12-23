@@ -32,7 +32,7 @@ pipeline {
       stage('Test') {
          steps {
             // Print hello world, using docker container ip
-            sh 'curl http://127.0.0.1:32390/'
+            sh 'curl http://127.0.0.1:31161/'
          }
       }
    }
